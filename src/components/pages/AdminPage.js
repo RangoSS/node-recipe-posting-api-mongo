@@ -20,22 +20,26 @@ const AddRecipe = () => {
     // Define the new recipe data
     const newRecipe = {
       name,
-      ingredients: ingredients.split(',').map((ingredient) => ingredient.trim()), // Convert ingredients to array
+      ingredients, // Convert ingredients to array
       instructions,
       category,
       preparationTime, // Keep as string
       cookingTime,     // Keep as string
       servings         // Keep as string
     };
-
     try {
+
+
+        console.log('Headers:', {
+            Authorization: `Bearer ${token}` // Log the token in the Authorization header
+          });
       // Make the request with the Authorization header
       const response = await axios.post('http://localhost:4000/api/recipe', newRecipe, {
         headers: {
           Authorization: `Bearer ${token}` // Use token from Redux store
         }
       });
-
+        console.log(response)
       if (response.status === 201) {
         alert('Recipe added successfully!');
         
