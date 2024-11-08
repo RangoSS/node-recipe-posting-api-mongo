@@ -1,0 +1,5 @@
+/* Move navbar links to the right */
+.navbar-nav {
+    margin-left: auto; /* Push the <ul> to the right */
+  }
+  
